@@ -2,6 +2,13 @@
 
 > A full-stack team productivity app built with the MERN stack. Manage projects, assign tasks, and track team performance with role-based access control.
 
+### 🔗 Live Demo
+
+| | Link |
+|---|---|
+| 🌐 **Frontend** | [https://taskhive-five.vercel.app](https://taskhive-five.vercel.app) |
+| 🔌 **Backend API** | [https://taskhive-backend.onrender.com](https://taskhive-backend.onrender.com) |
+
 ---
 
 ## 🚀 Tech Stack
@@ -130,6 +137,13 @@ VITE_API_URL=https://your-backend.railway.app/api
 
 ## 🌐 Deployment
 
+### ✅ Live Deployment
+
+| Service | Platform | URL |
+|---|---|---|
+| **Frontend** | Vercel | [https://taskhive-five.vercel.app](https://taskhive-five.vercel.app) |
+| **Backend API** | Render | [https://taskhive-backend.onrender.com](https://taskhive-backend.onrender.com) |
+
 ### Backend → Render (Free)
 1. Go to [render.com](https://render.com) and sign in with GitHub
 2. Click **New → Web Service**
@@ -140,20 +154,17 @@ VITE_API_URL=https://your-backend.railway.app/api
 7. Add these **Environment Variables**:
    - `MONGODB_URI` — your MongoDB Atlas connection string
    - `JWT_SECRET` — a strong secret key
-   - `FRONTEND_URL` — your Vercel frontend URL (after deploying frontend)
+   - `FRONTEND_URL` — `https://taskhive-five.vercel.app`
    - `PORT` — `10000`
-8. Deploy — your API will be live at `https://taskhive-backend.onrender.com`
+8. Live at: `https://taskhive-backend.onrender.com`
 
 ### Frontend → Vercel (Free)
 1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
-2. Click **Add New → Project**
-3. Import the `kuldeep54/taskhive` GitHub repo
-4. Set **Root Directory** to `frontend`
-5. Add **Environment Variable**:
-   - `VITE_API_URL` — `https://<your-render-service-name>.onrender.com/api`
-6. Click **Deploy** — your app will be live at `https://taskhive.vercel.app`
-
-> **Note:** After both are deployed, go back to Render and update `FRONTEND_URL` with your actual Vercel URL.
+2. Click **Add New → Project** → Import `kuldeep54/taskhive`
+3. Set **Root Directory** to `frontend`
+4. Add **Environment Variable**:
+   - `VITE_API_URL` — `https://taskhive-backend.onrender.com/api`
+5. Live at: `https://taskhive-five.vercel.app`
 
 ---
 
