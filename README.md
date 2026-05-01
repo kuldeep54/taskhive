@@ -170,6 +170,12 @@ VITE_API_URL=https://your-backend.railway.app/api
 
 ## 👤 Default Test Accounts
 
+| Role | Email | Password |
+|---|---|---|
+| **Admin** | `admin@taskhive.com` | `admin123` |
+| **Member** | `member@taskhive.com` | `member123` |
+
+> **Note:** If these accounts don't work, you can easily register new ones via the `/register` page and choose the appropriate role.
 Register your own via `/register` — select **Admin** or **Member** role.
 
 ---
