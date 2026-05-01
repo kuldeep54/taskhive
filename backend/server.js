@@ -20,6 +20,23 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Health check / root route
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    message: '🐝 TaskHive API is running!',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      projects: '/api/projects',
+      tasks: '/api/tasks',
+      users: '/api/users',
+      dashboard: '/api/dashboard',
+      notifications: '/api/notifications',
+    },
+  });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
