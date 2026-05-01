@@ -38,7 +38,7 @@
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/taskhive.git
+git clone https://github.com/kuldeep54/taskhive.git
 cd taskhive
 ```
 
@@ -130,19 +130,30 @@ VITE_API_URL=https://your-backend.railway.app/api
 
 ## 🌐 Deployment
 
-### Backend → Railway
-1. Push backend to GitHub
-2. New project on [railway.app](https://railway.app)
-3. Connect GitHub repo, set root to `/backend`
-4. Add environment variables in Railway dashboard
-5. Deploy
+### Backend → Render (Free)
+1. Go to [render.com](https://render.com) and sign in with GitHub
+2. Click **New → Web Service**
+3. Connect the `kuldeep54/taskhive` GitHub repo
+4. Set **Root Directory** to `backend`
+5. Set **Build Command**: `npm install`
+6. Set **Start Command**: `npm start`
+7. Add these **Environment Variables**:
+   - `MONGODB_URI` — your MongoDB Atlas connection string
+   - `JWT_SECRET` — a strong secret key
+   - `FRONTEND_URL` — your Vercel frontend URL (after deploying frontend)
+   - `PORT` — `10000`
+8. Deploy — your API will be live at `https://taskhive-backend.onrender.com`
 
-### Frontend → Vercel
-1. Push frontend to GitHub
-2. Import on [vercel.com](https://vercel.com)
-3. Set root to `/frontend`
-4. Add `VITE_API_URL` environment variable
-5. Deploy
+### Frontend → Vercel (Free)
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click **Add New → Project**
+3. Import the `kuldeep54/taskhive` GitHub repo
+4. Set **Root Directory** to `frontend`
+5. Add **Environment Variable**:
+   - `VITE_API_URL` — `https://<your-render-service-name>.onrender.com/api`
+6. Click **Deploy** — your app will be live at `https://taskhive.vercel.app`
+
+> **Note:** After both are deployed, go back to Render and update `FRONTEND_URL` with your actual Vercel URL.
 
 ---
 
