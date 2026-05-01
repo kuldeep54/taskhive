@@ -59,7 +59,7 @@ const Register = () => {
         <div className="text-center mb-6">
           <div className="flex justify-center mb-4">
             <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-background font-bold text-2xl">
-              TT
+              TH
             </div>
           </div>
           <h1 className="text-2xl font-bold text-text-primary">Create Account</h1>
