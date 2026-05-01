@@ -163,9 +163,9 @@ const Projects = () => {
                       <div 
                         key={member._id}
                         className="w-8 h-8 rounded-full bg-[#13151f] border-2 border-card flex items-center justify-center text-[10px] font-black text-primary uppercase"
-                        title={member.name}
+                        title={member?.name || 'Unknown'}
                       >
-                        {member.name.split(' ').map(n => n[0]).join('')}
+                        {member?.name ? member.name.split(' ').map(n => n[0]).join('') : '?'}
                       </div>
                     ))}
                     {project.members.length > 3 && (
@@ -180,7 +180,7 @@ const Projects = () => {
                   </div>
                 </div>
                 <p className="text-[9px] text-text-secondary mt-3 uppercase tracking-widest font-black opacity-60">
-                  by {project.createdBy.name}
+                  by {project.createdBy?.name || 'Unknown'}
                 </p>
               </div>
             </div>
@@ -240,7 +240,7 @@ const Projects = () => {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-border flex items-center justify-center text-[10px] font-black text-text-secondary uppercase">
-                      {u.name.split(' ').map(n => n[0]).join('')}
+                      {u.name ? u.name.split(' ').map(n => n[0]).join('') : '?'}
                     </div>
                     <div>
                       <p className="text-xs font-bold text-text-primary">{u.name}</p>

@@ -152,7 +152,7 @@ const ProjectDetail = () => {
             <h1 className="text-3xl font-bold text-text-primary">{project.title}</h1>
             <div className="flex items-center gap-3 mt-1">
               <span className="badge badge-done uppercase tracking-widest text-[10px] font-black">Active Project</span>
-              <span className="text-text-secondary text-xs font-medium">Created on {new Date(project.createdAt).toLocaleDateString()}</span>
+              <span className="text-text-secondary text-xs font-medium">Created on {project.createdAt ? new Date(project.createdAt).toLocaleDateString() : 'Unknown'}</span>
             </div>
           </div>
         </div>
@@ -229,7 +229,7 @@ const ProjectDetail = () => {
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-border/50">
                     <div className="flex items-center gap-2">
                       <div className="w-7 h-7 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-[10px]">
-                        {task.assignedTo?.name.split(' ').map(n => n[0]).join('') || '?'}
+                        {task.assignedTo?.name ? task.assignedTo.name.split(' ').map(n => n[0]).join('') : '?'}
                       </div>
                       <span className="text-xs font-bold text-text-primary">{task.assignedTo?.name || 'Unassigned'}</span>
                     </div>
@@ -294,7 +294,7 @@ const ProjectDetail = () => {
               <div className="space-y-3 pt-4 border-t border-border">
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-text-secondary font-bold uppercase">Owner</span>
-                  <span className="text-text-primary font-bold">{project.createdBy.name}</span>
+                  <span className="text-text-primary font-bold">{project.createdBy?.name || 'Unknown'}</span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
                   <span className="text-text-secondary font-bold uppercase">Started</span>
@@ -325,14 +325,14 @@ const ProjectDetail = () => {
                 <div key={member._id} className="p-3 flex items-center justify-between group hover:bg-[#13151f]/50 transition-all rounded-lg">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-[#0f1117] border border-border flex items-center justify-center text-text-primary font-bold text-[10px]">
-                      {member.name.split(' ').map(n => n[0]).join('')}
+                      {member?.name ? member.name.split(' ').map(n => n[0]).join('') : '?'}
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-text-primary">{member.name}</p>
-                      <span className="text-[9px] font-black text-text-secondary uppercase tracking-widest">{member.role}</span>
+                      <p className="text-xs font-bold text-text-primary">{member?.name || 'Unknown Member'}</p>
+                      <span className="text-[9px] font-black text-text-secondary uppercase tracking-widest">{member?.role || 'User'}</span>
                     </div>
                   </div>
-                  {isAdmin && member._id !== project.createdBy._id && (
+                  {isAdmin && member?._id !== project.createdBy?._id && (
                     <button 
                       onClick={() => handleRemoveMember(member._id)}
                       className="p-1.5 text-text-secondary hover:text-error opacity-0 group-hover:opacity-100 transition-all hover:bg-error/5 rounded"
@@ -382,7 +382,7 @@ const ProjectDetail = () => {
             <div key={u._id} className="flex items-center justify-between p-4 bg-[#13151f] rounded-xl border border-border hover:border-primary transition-all group">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm">
-                  {u.name.split(' ').map(n => n[0]).join('')}
+                  {u.name ? u.name.split(' ').map(n => n[0]).join('') : '?'}
                 </div>
                 <div>
                   <p className="text-sm font-bold text-text-primary group-hover:text-primary transition-colors">{u.name}</p>
